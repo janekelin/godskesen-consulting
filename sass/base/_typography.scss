@@ -1,0 +1,43 @@
+
+/*
+            ***TYPOGRAPHY***
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Krub|Source+Serif+Pro');
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: $primary-font;
+}
+
+.tilt-description {
+    font-size: 0.85em;
+    letter-spacing: 0.15em;
+}
+
+.tilt-title {
+    font-weight: normal;
+    font-size: 2.2em;
+    font-family: $title-font;
+    line-height: 1;
+}
+
+#copyright {
+    font-size: 75%;
+    font-style: italic;
+}
+
+#copyright:hover {
+    
+    a {
+        text-decoration: underline;
+        
+        &:hover{
+           font-weight: 600; 
+        }
+    }
+    
+}

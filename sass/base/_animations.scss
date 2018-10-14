@@ -1,0 +1,34 @@
+
+/*
+            ***TRANSITIONS***
+*/
+
+a {
+    transition: color 0.1s; /* from link-color to highlighted-link-color */
+}
+
+.tilt-deco--lines {
+		transform: scale3d(0.8,0.8,1);
+		transition: transform 0.4s;
+	}
+
+.tilt:hover .tilt-deco--lines {
+		transform: scale3d(1,1,1);
+	}
+
+.tilt:hover .tilt-description {
+        @include visible;
+		transition-delay: 0.1s;
+	}
+
+.tilt:hover .tilt-title {
+		@include visible;
+	}
+
+.tilt-description {
+		@include transition-from-not-visible;
+	}
+
+.tilt-title {
+		@include transition-from-not-visible;
+	}
