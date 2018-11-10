@@ -24,7 +24,7 @@
   "homepage": "https://github.com/janekelin/godskesen-consulting#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-imagemin": "^4.1.0",
+    "gulp-imagemin": "^5.0.3",
     "gulp-newer": "^1.4.0"
   }
 }
