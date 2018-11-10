@@ -2,10 +2,9 @@
 @import 'helpers/mixins';
 @import 'external/normalize';
 @import 'external/boilerplate';
-@import 'base/colors';
-@import 'base/typography';
-@import 'base/styles';
-@import 'base/animations';
 @import 'layout/flexbox';
-@import 'layout/main';
-@import 'layout/footer';
+@import 'layout/positioning';
+@import 'layout/box-model';
+@import 'base/typographic';
+@import 'base/visual';
+@import 'base/animations';

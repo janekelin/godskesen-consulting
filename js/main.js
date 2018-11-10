@@ -3,7 +3,7 @@
 
   "use strict";
 
-  $(".card").tilt({
+  $(".js-tilt").tilt({
     maxTilt: 16,
     perspective: 1400,
     easing: "cubic-bezier(.03,.98,.52,.99)",

@@ -1,0 +1,30 @@
+{
+  "name": "godskesen-consulting",
+  "version": "1.0.0",
+  "description": "landing page for Flemming Godskesen's and Iana Godskesen Kalinichenko's websites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janekelin/godskesen-consulting.git"
+  },
+  "keywords": [
+    "web",
+    "developer",
+    "portfolio",
+    "powershell"
+  ],
+  "author": "Iana Godskesen Kalinichenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janekelin/godskesen-consulting/issues"
+  },
+  "homepage": "https://github.com/janekelin/godskesen-consulting#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-newer": "^1.4.0"
+  }
+}

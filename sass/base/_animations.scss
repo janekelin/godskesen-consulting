@@ -3,32 +3,20 @@
             ***TRANSITIONS***
 */
 
-a {
-    transition: color 0.1s; /* from link-color to highlighted-link-color */
-}
+// from link-color to highlight-color
+a { transition: color 0.1s;  }
+
+.tilt-title,
+.tilt-description { @include transit-from-not-visible; }
+
+.tilt:hover .tilt-title,
+.tilt:hover .tilt-description { @include make-visible; }
+
+.tilt:hover .tilt-description { transition-delay: 0.1s; }
 
 .tilt-deco--lines {
-		transform: scale3d(0.8,0.8,1);
-		transition: transform 0.4s;
-	}
+  transform: scale3d(0.8,0.8,1);
+  transition: transform 0.4s; //on hover
+}
 
-.tilt:hover .tilt-deco--lines {
-		transform: scale3d(1,1,1);
-	}
-
-.tilt:hover .tilt-description {
-        @include visible;
-		transition-delay: 0.1s;
-	}
-
-.tilt:hover .tilt-title {
-		@include visible;
-	}
-
-.tilt-description {
-		@include transition-from-not-visible;
-	}
-
-.tilt-title {
-		@include transition-from-not-visible;
-	}
+.tilt:hover .tilt-deco--lines { transform: scale3d(1,1,1); }

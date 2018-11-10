@@ -4,8 +4,8 @@ robots.txt
 
 .idea
 
+build/
 css/
-
-
-
+node_modules/
+src/
 

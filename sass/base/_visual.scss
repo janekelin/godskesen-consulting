@@ -1,0 +1,61 @@
+
+/*
+            ***VISUAL***
+*/
+
+//general
+body {
+  color: $general-text;
+  background: $body-gradient, url(../img/bg.jpg) center/cover no-repeat;
+
+  @media screen and (max-width: $tablet-max-width) { background: $body-gradient; }
+}
+
+a {
+  color: $link-text;
+  
+  &:hover,
+  &:focus { @include highlight; }
+}
+
+//index.html
+.tilt-figure::before { box-shadow: 0 30px 20px $shadow; }
+
+.tilt-deco--overlay { background-image: $overlay-gradient; }
+
+.tilt-deco--lines {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 3.5px;
+}
+
+.tilt:hover,
+.tilt:focus  {
+  .tilt-deco--lines { stroke: $highlighted; }
+}
+
+.copyright:hover,
+.copyright:focus {
+  @include highlight;
+  
+  //so that links do not remain with a link-text-color, when the copyright info is hovered/focused on
+  a { @include highlight; }
+}
+
+//404.html
+/*.not-found--layout { background-image: $overlay-gradient; }*/
+
+.not-found--content { background-image: $overlay-gradient;color: $not-found-general-text; }
+
+.not-found--heading { background-color: $custom-violet; }
+
+.not-found--link { 
+  background-color: $transparent-violet-more;
+  
+  &:visited {
+      color: $not-found-general-text;
+  }
+  
+  &:hover,
+  &:focus { color: $not-found-focused-text; } 
+}

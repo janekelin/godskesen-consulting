@@ -1,95 +1,87 @@
 <!doctype html>
 <html class="no-js" lang="en-US">
     
-<!--
-The design of this website is inspired by CodePen "UI Tilt Hover Effect with SVG" (https://codepen.io/2975/full/WJwxYv) by neil pearce (https://codepen.io/2975)
-This landing page is created by Iana Kalinichenko Godskesen (janna-web-developer@outlook.com) in 2018.
--->
+  <!--
+  The design of this website is inspired by CodePen "UI Tilt Hover Effect with SVG" (https://codepen.io/2975/full/WJwxYv) 
+  created by neil pearce (https://codepen.io/2975).
+  This landing page is produced by Iana Kalinichenko Godskesen (janna-web-developer@outlook.com) in 2018.
+  -->
 
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+
     <title>Flemming Godskesen | Iana Godskesen</title>
     <meta name="description" content="A homepage of Flemming Godskesen and Ianna Godskesen (neé Kalinichenko)">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
 
     <!-- STYLES --> 
-    <link rel="stylesheet" href="css/site.css">
-    
-    <!-- SCRIPTS (that need to run before the page loads) -->      
+    <link rel="stylesheet" href="css/site.css">    
 
-</head>
+  </head>
 
-<body>
+  <body>
     <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. 
+      Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
     
     <main>
 
-        <section class="content">
-            <a href="http://flemming.godskesen.consulting" class="tilt">
-                <figure class="tilt-figure card">
-                    <img class="tilt-image" src="img/flemming.jpg" alt="Portrait of Flemming Godskesen" />
-                    <div class="tilt-deco tilt-deco--overlay"></div>
-                    <figcaption class="tilt-caption">
-                        <h1 class="tilt-title">Flemming Godskesen</h1>
-                        <p class="tilt-description">PowerShell Junkie</p>
-                    </figcaption>
-                    <svg class="tilt-deco tilt-deco--lines" viewBox="0 0 300 415">
-                        <title>White outline</title>
-                        <desc>An outline for Flemming Godskesen's profile card</desc>
-                        <path d="M20.5,20.5h260v375h-260V20.5z" />
-                    </svg>
-                </figure>
-            </a>
-      
-            <a href="http://iana.godskesen.consulting" class="tilt">
-                <figure class="tilt-figure card">
-                    <img class="tilt-image" src="img/iana.jpg" alt="Portrait of Iana Godskesen Kalinichenko" />
-                    <div class="tilt-deco tilt-deco--overlay"></div>
-                    <figcaption class="tilt-caption">
-                        <h1 class="tilt-title">Iana Godskesen</h1>
-                        <p class="tilt-description">Webdev Enthusiast</p>
-                    </figcaption>
-                    <svg class="tilt-deco tilt-deco--lines" viewBox="0 0 300 415" title="white outline" desc="an outline for Iana Godskesen's profile card">
-                        <title>White outline</title>
-                        <desc>An outline for Iana Godskesen's profile card</desc>
-                        <path d="M20.5,20.5h260v375h-260V20.5z" />
-                    </svg>
-              </figure>
-            </a>
-        </section>
+      <section class="content">
+
+        <!-- Flemming's profile -->
+        <a class="tilt" href="http://flemming.godskesen.consulting">
+          <figure class="tilt-figure js-tilt">
+            <img class="tilt-image" src="img/flemming.jpg" alt="Portrait of Flemming Godskesen">
+            <div class="tilt-deco tilt-deco--overlay"></div>
+            <figcaption class="tilt-caption">
+              <h1 class="tilt-title">Flemming Godskesen</h1>
+              <p class="tilt-description">PowerShell Junkie</p>
+            </figcaption>
+            <svg class="tilt-deco tilt-deco--lines" viewBox="0 0 300 415">
+              <desc>An outline for Flemming Godskesen's profile card</desc>
+              <path d="M20.5,20.5h260v375h-260V20.5z">
+            </svg>
+          </figure>
+        </a>
+
+        <!-- Iana's profile -->
+        <a class="tilt" href="http://iana.godskesen.consulting">
+          <figure class="tilt-figure js-tilt">
+            <img class="tilt-image" src="img/iana.jpg" alt="Portrait of Iana Godskesen Kalinichenko">
+            <div class="tilt-deco tilt-deco--overlay"></div>
+            <figcaption class="tilt-caption">
+              <h1 class="tilt-title">Iana Godskesen</h1>
+              <p class="tilt-description">Webdev Enthusiast</p>
+            </figcaption>
+            <svg class="tilt-deco tilt-deco--lines" viewBox="0 0 300 415" title="white outline" desc="an outline for Iana Godskesen's profile card">
+              <desc>An outline for Iana Godskesen's profile card</desc>
+              <path d="M20.5,20.5h260v375h-260V20.5z">
+            </svg>
+          </figure>
+        </a>
+
+      </section>
         
-        <footer>
-            <p id="copyright">
-                &copy; The original color palette is 
-                <a href="https://www.colourlovers.com/palette/4570274/05.05.18">05.05.18</a> 
-                created by 
-                <a href="https://www.colourlovers.com/lover/JMG84">JMG84</a> 
-                under 
-                <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC-BY-NC-SA</a> 
-                license. This website uses a slightly modified version of the mentioned color palette.  
-            </p>
-        </footer>
+      <aside>
+        <p class="copyright">&copy; The original color palette is <a href="https://www.colourlovers.com/palette/4570274/05.05.18">05.05.18</a> 
+        created by <a href="https://www.colourlovers.com/lover/JMG84">JMG84</a> 
+        under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC-BY-NC-SA</a> license. 
+        This website uses a slightly modified version of the mentioned color palette.  
+        </p>
+      </aside>
+
     </main>
     
     <!-- SCRIPTS (that need to run after the page is loaded) -->
-    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-    <script src="js/plugins.js"></script>
     <script src='https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js'></script>
+    <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
-    <!-- Google Analytics
-    <script>
-        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>-->
-</body>
-
+  </body>
 </html>

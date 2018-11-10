@@ -1,0 +1,59 @@
+
+/*
+            ***BOX MODEL***
+*/
+
+//general
+*, 
+*::after, 
+*::before { box-sizing: border-box; }
+
+//index.html
+.content { min-height: 100vh; }
+
+.tilt { margin: 5%; }
+
+.tilt-figure { @include fill-container; }
+
+.tilt-image { @include fill-container; }
+
+.tilt-deco { overflow: hidden; }
+
+.tilt-caption {
+  width: 100%;
+  padding: 28% 20% 7%;
+}
+
+.tilt-title { margin: 0; }
+
+.copyright {
+  float: right; //for discreet look where it overlaps with the flexed .content
+  padding: 1%;
+}
+
+//404.html
+.not-found--layout {
+  width: 100%;
+  height: 100%;
+}
+
+.not-found--content { 
+  margin: 2em auto;
+  
+  @media screen and (max-width: $very-small-screen) { width: 95%; }
+}
+
+.not-found--heading { 
+  padding: 1%;
+  
+  @media screen and (max-width: $very-small-screen) { margin: 0 0 0.3em; }
+}
+
+.not-found--text {
+  width: 50%;
+  margin: 10px auto;
+
+  @media screen and (max-width: $very-small-screen) { width: 95%; }
+}
+        
+.not-found--link { padding: 3px; }
