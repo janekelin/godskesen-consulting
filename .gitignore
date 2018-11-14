@@ -1,11 +1,15 @@
-LICENSE.txt
+npm-debug.log*
+package-lock.json
+Thumbs.db
 
-robots.txt
-
+*.log
+.DS_Store
 .idea
+.npm
 
 build/
-css/
+logs/
 node_modules/
 src/
+
 
