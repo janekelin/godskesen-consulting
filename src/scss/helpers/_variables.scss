@@ -1,0 +1,55 @@
+
+/* 
+            ***COLOR PALETTE***
+The Original palette is 05.05.18 - https://www.colourlovers.com/palette/4570274/05.05.18
+created by JMG84 - https://www.colourlovers.com/lover/JMG84
+under Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0) license - https://creativecommons.org/licenses/by-nc-sa/3.0/
+Slight modifications are applied.
+*/
+
+/* Base colors */
+$custom-violet: #463f51; //rgb(70,63,81)
+$custom-yellow: rgb(224,176,72);
+$transparent-corall: rgba(237,20,109,0.4);
+$transparent-grey: rgba(35,32,39,0.6);
+$transparent-orange: rgba(232,125,85,0.5);
+$transparent-orange-more: rgba(232,125,85,0.6);
+$transparent-pink: rgba(195,26,122,0.5);
+$transparent-violet: rgba(88,40,111,0.6);
+$transparent-violet-less: rgba(88,40,111,0.58);
+$transparent-violet-more: rgba(88,40,111,0.68);
+$transparent-yellow: rgba(224,176,72,0.6);
+$white: #fff;
+$soft-white: cornsilk;
+
+/* Functional colors */
+$color-main: $custom-violet;
+$color-highlighted: $white;
+$color-link: $transparent-violet;
+$color-shadow: $transparent-grey;
+$color-not-found-main: $soft-white;
+$color-not-found-focused: $custom-yellow;
+$color-not-found-link-bg: $transparent-violet-more;
+
+/* Palettes */
+$colors-body: $transparent-violet, $transparent-pink, $transparent-corall, $transparent-orange, $transparent-yellow;
+$colors-overlay: $custom-yellow, $transparent-violet-less, $transparent-orange-more;
+
+/* Gradients */
+$gradient-body: linear-gradient(to right, $colors-body);
+$gradient-overlay: linear-gradient(20deg, $colors-overlay);
+
+
+/*
+            ***FONTS***
+*/
+
+$font-main: 'Krub', Verdana, Helvetica, sans-serif;
+$font-title: 'Source Serif Pro', Times, serif;
+
+/*
+            ***MEDIA QUERIES***
+*/
+
+$tablet-max-width: 1024px;
+$very-small-screen: 280px;

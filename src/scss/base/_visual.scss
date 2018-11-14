@@ -1,0 +1,67 @@
+
+/*
+            ***VISUAL***
+*/
+
+//general
+body {
+  color: $color-main;
+  background: $gradient-body, url(../images/bg.jpg) center/cover no-repeat;
+
+  @media screen and (max-width: $tablet-max-width) { background: $gradient-body; }
+}
+
+a {
+  color: $color-link;
+  
+  &:hover,
+  &:focus { color: $color-highlighted; }
+
+  @media screen and (max-width: $tablet-max-width) { color: $color-highlighted; }
+}
+
+//index.html
+.tilt-figure::before { box-shadow: 0 30px 20px $color-shadow; }
+
+.tilt-deco--overlay { background-image: $gradient-overlay; }
+
+.tilt-deco--lines {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 3.5px;
+
+  @media screen and (max-width: $tablet-max-width) { stroke: $color-highlighted; }
+}
+
+.tilt:hover,
+.tilt:focus  {
+  .tilt-deco--lines { stroke: $color-highlighted; }
+}
+
+.copyright:hover,
+.copyright:focus {
+  color: $color-highlighted;
+  
+  //so that links do not remain with a link-text-color, when the copyright info is hovered/focused on
+  a { color: $color-highlighted; }
+}
+
+//404.html
+
+.not-found--content { 
+  background-image: $gradient-overlay;
+  color: $color-not-found-main; 
+}
+
+.not-found--heading { background-color: $color-main; }
+
+.not-found--link { 
+  background-color: $color-not-found-link-bg;
+  
+  &:visited {
+      color: $color-not-found-main;
+  }
+  
+  &:hover,
+  &:focus { color: $color-not-found-focused; } 
+}
