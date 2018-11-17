@@ -14,9 +14,12 @@ a { transition: color 0.1s;  } // from color-link to color-highlight
 }
 
 .tilt:hover .tilt-title,
-.tilt:hover .tilt-description { @include transit-to-visible; }
+.tilt:hover .tilt-description,
+.tilt:focus .tilt-title,
+.tilt:focus .tilt-description { @include transit-to-visible; }
 
-.tilt:hover .tilt-description { transition-delay: 0.1s; }
+.tilt:hover .tilt-description,
+.tilt:focus .tilt-description { transition-delay: 0.1s; }
 
 .tilt-deco--lines {
   transform: scale3d(0.8,0.8,1);
@@ -25,4 +28,5 @@ a { transition: color 0.1s;  } // from color-link to color-highlight
   @media screen and (max-width: $tablet-max-width) { @include show-deco-lines; }
 }
 
-.tilt:hover .tilt-deco--lines { @include show-deco-lines; }
+.tilt:hover .tilt-deco--lines,
+.tilt:focus .tilt-deco--lines { @include show-deco-lines; }
