@@ -1,0 +1,31 @@
+
+/*
+          ***PRINT STYLES***
+*/
+
+@media print {
+
+  //hide unnecessary elements
+  .tilt-image,
+  .tilt-caption,
+  aside { display: none; }
+
+  //linerize the layout
+  .content,
+  .tilt { display: block; }
+
+  .content 
+  { min-height: 50vh; }
+
+  // adjust the typography
+  .tilt {
+    font-family: serif;
+    font-size: 12pt;
+  }
+
+  // add suplementary content
+  a[href*="flemming"]::before { content: "Flemming Godskesen's personal website: "; }
+  
+  a[href*="iana"]::before { content: "Iana Godskesen Kalinichenko's personal website: "; }
+
+}
