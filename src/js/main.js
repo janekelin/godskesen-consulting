@@ -1,10 +1,3 @@
-//prevents CSS file from render-blocking
-const styleLink = document.createElement('link');
-styleLink.href = 'build/css/site.css';
-styleLink.rel = 'stylesheet';
-const firstLinkTag = document.getElementsByTagName('link')[0];
-firstLinkTag.parentNode.insertBefore(styleLink, firstLinkTag);
-
 //Adds tilt and glare to cards leading to subdomains. From tilt.js (https://github.com/gijsroge/tilt.js)
 (function ($) {
 

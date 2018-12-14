@@ -11,11 +11,11 @@
 //index.html
 .content { min-height: 100vh; }
 
-.tilt { margin: 5%; }
-
-.tilt-figure { @include fill-container; }
-
-.tilt-image { @include fill-container; }
+.tilt { 
+  margin: 5%;
+  @media screen and (min-width: $very-large-screen) { width: 25%; } }
+ 
+.tilt--cover { @include fill-container; }
 
 .tilt-deco { overflow: hidden; }
 

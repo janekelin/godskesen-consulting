@@ -1,0 +1,42 @@
+
+/*
+            ***TYPOGRAPHIC***
+*/
+
+//index.html
+a { 
+  text-decoration: none; 
+  color: $color-link;
+  transition: color 0.1s; //to $color-highlighted on hover/focus
+
+  @media screen and (max-width: $tablet-max-width) { color: $color-highlighted; }
+  
+  &:hover,
+  &:focus { color: $color-highlighted; }
+}
+
+.copyright:hover,
+.copyright:focus {
+  a {
+    text-decoration: underline;
+
+    &:visited { text-decoration: none; }
+    
+    &:hover,
+    &:focus { font-weight: 600; }
+
+    &:active { font-size: 105%; }
+  }
+}
+
+//404.html
+.not-found--link { 
+  background-color: $color-not-found-link-bg;
+  
+  &:visited {
+      color: $color-not-found-main;
+  }
+  
+  &:hover,
+  &:focus { color: $color-not-found-focused; } 
+}

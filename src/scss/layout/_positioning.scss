@@ -6,11 +6,6 @@
 //index.html
 .tilt-figure { position: relative; }
 
-.tilt-figure::before {
-  @include make-overlay(absolute, 90%, 90%, 5%, 5%);
-  content: ''; //container for the visual effect of 3D picture
-}
-
 .tilt-deco { @include make-overlay(absolute, 100%, 100%, 0, 0); }
 
 .tilt-caption {

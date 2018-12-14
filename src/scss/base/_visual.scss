@@ -11,18 +11,7 @@ body {
   @media screen and (max-width: $tablet-max-width) { background: $gradient-body; }
 }
 
-a {
-  color: $color-link;
-  
-  &:hover,
-  &:focus { color: $color-highlighted; }
-
-  @media screen and (max-width: $tablet-max-width) { color: $color-highlighted; }
-}
-
 //index.html
-.tilt-figure::before { box-shadow: 0 30px 20px $color-shadow; }
-
 .tilt-deco--overlay { background-image: $gradient-overlay; }
 
 .tilt-deco--lines {
@@ -47,21 +36,9 @@ a {
 }
 
 //404.html
-
 .not-found--content { 
   background-image: $gradient-overlay;
   color: $color-not-found-main; 
 }
 
 .not-found--heading { background-color: $color-main; }
-
-.not-found--link { 
-  background-color: $color-not-found-link-bg;
-  
-  &:visited {
-      color: $color-not-found-main;
-  }
-  
-  &:hover,
-  &:focus { color: $color-not-found-focused; } 
-}

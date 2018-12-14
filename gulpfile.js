@@ -22,8 +22,13 @@
     imagemin       = require('gulp-imagemin'),
     sass           = require('gulp-sass'),
     postcss        = require('gulp-postcss'),
+    concat         = require('gulp-concat'),
+    deporder       = require('gulp-deporder'),
+    stripdebug     = require('gulp-strip-debug'),
+    uglify         = require('gulp-uglify'),
     sourcemaps     = devBuild ? require('gulp-sourcemaps') : null,
     browsersync    = devBuild ? require('browser-sync').create() : null;
+    
 
   console.log('Gulp', devBuild ?  'development' : 'production', 'build');
 
@@ -37,15 +42,17 @@
     }
   };
 
-  gulp.task('images', () =>
+  gulp.task('images', (done) => {
 
     gulp.src(imgConfig.src)
       .pipe(newer(imgConfig.build))
       .pipe(imagemin(imgConfig.minOpts))
       .pipe(size({ showFiles:true }))
       .pipe(gulp.dest(imgConfig.build))
+    
+    done();
 
-  );
+  });
 
   /*** CSS task ***/
   const cssConfig = {
@@ -81,7 +88,7 @@
     );
   }
 
-  gulp.task('css', ['images'], () =>
+  gulp.task('css', gulp.series('images', (done) => {
 
     gulp.src(cssConfig.src)
       .pipe(sourcemaps ? sourcemaps.init() : noop())
@@ -91,7 +98,27 @@
       .pipe(size({ showFiles:true }))
       .pipe(gulp.dest(cssConfig.build))
       .pipe(browsersync ? browsersync.reload({ stream: true }) : noop())
-  );
+    
+    done();
+  }));
+
+  /*** JavaScript task ***/
+  const jsbuild = {
+    src             : dir.src + 'js/**/*',
+    build           : dir.build + 'js/',
+    file            : 'main.min.js'
+  };
+
+  gulp.task('js', (done) => {
+
+    gulp.src(jsbuild.src)
+      .pipe(deporder())
+      .pipe(concat(jsbuild.file))
+      .pipe(devBuild ? noop() : stripdebug())
+      .pipe(devBuild ? noop() : uglify())
+      .pipe(gulp.dest(jsbuild.build))
+    done();
+  });
 
 /*** browser-sync task ***/
 const syncConfig = {
@@ -105,19 +132,24 @@ const syncConfig = {
 };
 
 // browser-sync
-gulp.task('browsersync', ()=>
-  browsersync ? browsersync.init(syncConfig) : null
-);
+gulp.task('browsersync', (done) => {
+  browsersync ? browsersync.init(syncConfig) : null;
+  done();
+});
 
 /*** watch-task ***/
-gulp.task('default', ['css', 'browsersync'], () => {
+gulp.task('default', gulp.series('css', 'js', 'browsersync', (done) => {
 
   // image changes
-  gulp.watch(imgConfig.src, ['images']);
+  gulp.watch(imgConfig.src, gulp.parallel(['images']));
 
   // CSS changes
-  gulp.watch(cssConfig.watch, ['css']);
-});
+  gulp.watch(cssConfig.watch, gulp.parallel(['css']));
+
+  // JS changes
+  gulp.watch(jsbuild.src, gulp.parallel(['js']));
+  done();
+}));
 
 })();
 

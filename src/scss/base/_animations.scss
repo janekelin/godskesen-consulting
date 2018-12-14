@@ -1,11 +1,9 @@
 
 /*
-            ***TRANSITIONS***
+            ***ANIMATIONS***
 */
 
-
-a { transition: color 0.1s;  } // from color-link to color-highlight
-
+//index.html
 .tilt-title,
 .tilt-description { 
   @include transit-from-not-visible; 

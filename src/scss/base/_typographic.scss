@@ -8,9 +8,11 @@
 
 body { font-family: $font-main; }
 
-a { text-decoration: none; }
-
 //index.html
+.tilt-caption {  
+  @media screen and (min-width: $very-large-screen) { font-size: 2em; }
+}
+
 .tilt-title {
   font-family: $font-title;
   font-size: 2.2em;
@@ -24,18 +26,9 @@ a { text-decoration: none; }
 }
 
 .copyright {
-  font-size: 0.95em;
   font-style: italic;
-}
 
-.copyright:hover,
-.vopyright:focus {
-  a {
-    text-decoration: underline;
-    
-    &:hover,
-    &:focus { font-weight: 600; }
-  }
+  @media screen and (min-width: $very-large-screen) { font-size: 1.5em; }
 }
 
 //404.html
