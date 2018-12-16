@@ -19,6 +19,8 @@
 .tilt:hover .tilt-description,
 .tilt:focus .tilt-description { transition-delay: 0.1s; }
 
+@media screen and (prefers-reduced-motion: reduce) { .tilt-deco--lines { @include show-deco-lines; } }
+
 .tilt-deco--lines {
   transform: scale3d(0.8,0.8,1);
   transition: transform 0.4s; //on hover

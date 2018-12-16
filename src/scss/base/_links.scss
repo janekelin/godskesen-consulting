@@ -4,6 +4,8 @@
 */
 
 //index.html
+@media screen and (prefers-reduced-motion: reduce) { a { color: $color-highlighted; } }
+
 a { 
   text-decoration: none; 
   color: $color-link;
