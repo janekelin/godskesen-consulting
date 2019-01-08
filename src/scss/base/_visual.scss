@@ -6,7 +6,7 @@
 //general
 body {
   color: $color-main;
-  background: $gradient-body, url(../images/bg.jpg) center/cover no-repeat;
+  background: $gradient-body, url(../images/bg.JPG) center/cover no-repeat;
 
   @media screen and (max-width: $tablet-max-width) { background: $gradient-body; }
 }
