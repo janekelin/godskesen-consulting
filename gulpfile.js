@@ -1,7 +1,4 @@
 ( () => {
-
-  'use strict';
-
   /*** gulpfile.js configuration  ***/
   const
 
@@ -83,7 +80,7 @@
   // remove unused selectors and minify production CSS
   if (!devBuild) {
     cssConfig.postCSS.push(
-      require('usedcss')({ html: ['index.html', '404.html']}),
+      require('usedcss')({ html: ['public/index.html', 'public/404.html']}),
       require('cssnano')
     );
   }
@@ -124,7 +121,7 @@
 const syncConfig = {
   server: {
     baseDir          : './',
-    index            : 'index.html'
+    index            : 'public/index.html'
   },
   port               : 8000,
   files              : dir.build + '**/*',
@@ -133,12 +130,12 @@ const syncConfig = {
 
 // browser-sync
 gulp.task('browsersync', (done) => {
-  browsersync ? browsersync.init(syncConfig) : null;
+  browsersync ? browsersync.init(syncConfig) : noop();
   done();
 });
 
 /*** watch-task ***/
-gulp.task('default', gulp.series('css', 'js', 'browsersync', (done) => {
+gulp.task('default', gulp.series('css', 'browsersync', (done) => {
 
   // image changes
   gulp.watch(imgConfig.src, gulp.parallel(['images']));
@@ -146,10 +143,8 @@ gulp.task('default', gulp.series('css', 'js', 'browsersync', (done) => {
   // CSS changes
   gulp.watch(cssConfig.watch, gulp.parallel(['css']));
 
-  // JS changes
-  gulp.watch(jsbuild.src, gulp.parallel(['js']));
   done();
-}));
+ }));
 
 })();
 
