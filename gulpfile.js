@@ -71,7 +71,7 @@
         basePath: dir.build
       }),
       require('autoprefixer')({
-        browsers: ['> 1%']
+        overrideBrowserslist: ['> 1%']
       })
     ]
 
