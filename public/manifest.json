@@ -1,0 +1,20 @@
+{
+  "short_name": "Godskesen's landing page",
+  "name": "Landing page for Flemming & Iana Godskesen's",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#463f51",
+  "background_color": "#000000"
+}
