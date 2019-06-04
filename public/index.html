@@ -1,36 +1,43 @@
 <!doctype html>
 <html class="no-js" lang="en-US">
-    
-  <!--
-  The design of this website is inspired by CodePen "UI Tilt Hover Effect with SVG" (https://codepen.io/2975/full/WJwxYv) 
-  created by neil pearce (https://codepen.io/2975).
-  This landing page is produced by Iana Kalinichenko Godskesen (iana@godskesen.consulting) in 2018.
-  -->
 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="theme-color" content="#463f51" />
 
     <title>Flemming Godskesen | Iana Godskesen</title>
     <meta name="description" content="A homepage of Flemming Godskesen and Iana Godskesen (neé Kalinichenko)">
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon.png">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
 
     <!-- STYLES --> 
-    <link rel="stylesheet" href="build/css/site.css">     
+    <link rel="stylesheet" href="%PUBLIC_URL%/build/css/site.css">     
 
   </head>
 
   <body>
+      <noscript>You need to enable JavaScript to run this app in a standard mode.</noscript>
     <!--[if lte IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. 
       Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
-    <header class="visuallyhidden"><h1>Flemming & Iana Godskesen: our portfolios</h1></header>
     
-    <main>
+    <header class="visuallyhidden"><h1>Flemming & Iana Godskesen: our portfolios</h1></header>
+    <section class="visuallyhidden">
+      <p>Flemming Godskesen is a solution architect and a secret Powershell junkie.
+          <a href="https://flemming.godskesen.consulting">Find out more about Flemming Godskesen.</a>
+      </p>
+      <p>Iana Godskesen is a front-end developer with a deep love for Javascript.
+          <a href="https://iana.godskesen.consulting">Find out more about Iana Godskesen.</a>
+      </p>
+    </section>
+    
+    <main id="root">
+    
 
       <section class="content">
 
@@ -81,7 +88,7 @@
     <!-- SCRIPTS (that need to run after the page is loaded) -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src='https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js'></script>
-    <script src="build/js/main.min.js"></script>
+    <script src="%PUBLIC_URL%/build/js/main.min.js"></script>
 
   </body>
 </html>
