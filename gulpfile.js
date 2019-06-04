@@ -8,7 +8,7 @@
     // directory locations
     dir = {
       src          : 'src/',
-      build        : 'build/'
+      build        : 'public/build/'
     },
 
     // modules
