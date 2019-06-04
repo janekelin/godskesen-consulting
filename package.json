@@ -40,9 +40,11 @@
     "stylelint-a11y": "^1.1.9"
   },
   "dependencies": {
+    "jquery": "latest",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "tilt.js": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

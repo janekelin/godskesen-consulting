@@ -32,7 +32,7 @@
   /*** images task ***/
   const imgConfig = {
     src            : dir.src + 'images/**/*',
-    build          : dir.build + 'images/',
+    build          : dir.src + 'images/build',
 
     minOpts: {
       optimizationLevel: 5
