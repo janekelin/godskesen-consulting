@@ -54,9 +54,9 @@
   /*** CSS task ***/
   const cssConfig = {
 
-    src             : dir.src + 'scss/site.scss',
+    src             : dir.src + 'scss/index.scss',
     watch           : dir.src + 'scss/**/*',
-    build           : dir.build + 'css/',
+    build           : dir.src,
     sassOpts: {
       sourceMap       : devBuild,
       outputStyle     : 'nested',
@@ -77,7 +77,7 @@
 
   };
 
-  // remove unused selectors and minify production CSS
+  // minify production CSS
   if (!devBuild) {
     cssConfig.postCSS.push(
       require('cssnano')
