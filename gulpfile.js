@@ -7,7 +7,7 @@
 
     // directory locations
     dir = {
-      src          : 'public/src/',
+      src          : 'src/',
       build        : 'build/'
     },
 
