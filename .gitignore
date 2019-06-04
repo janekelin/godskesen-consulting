@@ -12,6 +12,7 @@
 # production
 /build
 /public/build
+/public/build/js/
 index.css
 /src/images/build/
 
