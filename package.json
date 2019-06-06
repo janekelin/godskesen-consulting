@@ -18,14 +18,11 @@
   "bugs": {
     "url": "https://github.com/janekelin/godskesen-consulting/issues"
   },
-  "homepage": "https://github.com/janekelin/godskesen-consulting#readme",
+  "homepage": "https://godskesen.consulting",
   "devDependencies": {
     "autoprefixer": "^9.4.2",
-    "browser-sync": "^2.26.3",
     "cssnano": "^4.1.7",
     "gulp": "^4.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-deporder": "^1.1.0",
     "gulp-imagemin": "^5.0.3",
     "gulp-newer": "^1.4.0",
     "gulp-noop": "^1.0.0",
@@ -33,18 +30,14 @@
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-strip-debug": "^3.0.0",
-    "gulp-uglify": "^3.0.1",
     "postcss-assets": "^5.0.0",
     "stylelint": "^9.9.0",
     "stylelint-a11y": "^1.1.9"
   },
   "dependencies": {
-    "jquery": "latest",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "tilt.js": "latest"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
