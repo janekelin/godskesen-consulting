@@ -1,37 +1,7 @@
 import React from 'react';
 import flemmingPic from './images/build/flemming.JPG';
 import ianaPic from './images/build/iana.JPG';
-
-function Card(props) {
-  const VIEWBOX = "0 0 300 415";
-  const SVGBORDER = "M20.5,20.5h260v375h-260V20.5z";
-
-  return (
-    <a className="tilt" href={props.customLink}>
-      <figure className="tilt--cover tilt-figure js-tilt">
-            <img 
-              className="tilt--cover tilt-image" 
-              src={props.pic} 
-              alt={"Portrait of " + props.cardTitle} 
-            />
-            <div className="tilt-deco tilt-deco--overlay"></div>
-            <figcaption className="tilt-caption">
-              <h2 className="tilt-title">{props.cardTitle}</h2>
-              <p className="tilt-description">{props.cardSubtitle}</p>
-            </figcaption>
-            <svg 
-              className="tilt-deco tilt-deco--lines" 
-              viewBox={VIEWBOX}
-              title="white outline" 
-              desc={"an outline for" + props.cardTitle + "'s profile card"}
-            >
-              <desc>An outline for {props.cardTitle}'s profile card</desc>
-              <path d={SVGBORDER} />
-            </svg>
-          </figure>
-    </a>
-  );
-}
+import Card from './Card.js';
 
 function CopyrightNote(props) {
   return (
