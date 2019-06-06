@@ -2,9 +2,6 @@
   /*** gulpfile.js configuration  ***/
   const
 
-    // development or production
-    devBuild = ( (process.env.NODE_ENV || 'development').trim().toLowerCase() === 'development'),
-
     // directory locations
     dir = {
       src          : 'src/',
@@ -19,20 +16,12 @@
     imagemin       = require('gulp-imagemin'),
     sass           = require('gulp-sass'),
     postcss        = require('gulp-postcss'),
-    concat         = require('gulp-concat'),
-    deporder       = require('gulp-deporder'),
-    stripdebug     = require('gulp-strip-debug'),
-    uglify         = require('gulp-uglify'),
-    sourcemaps     = devBuild ? require('gulp-sourcemaps') : null,
-    browsersync    = devBuild ? require('browser-sync').create() : null;
-    
-
-  console.log('Gulp', devBuild ?  'development' : 'production', 'build');
+    sourcemaps     = null;
 
   /*** images task ***/
   const imgConfig = {
-    src            : dir.src + 'images/**/*',
-    build          : dir.src + 'images/build',
+    src            : dir.src + 'images/src/*',
+    build          : dir.src + 'images/build/',
 
     minOpts: {
       optimizationLevel: 5
@@ -58,16 +47,16 @@
     watch           : dir.src + 'scss/**/*',
     build           : dir.src,
     sassOpts: {
-      sourceMap       : devBuild,
+      sourceMap       : false,
       outputStyle     : 'nested',
-      imagePath       : '../images/',
+      imagePath       : '../images/build',
       precision       : 3,
       errLogToConsole : true
     },
 
     postCSS: [
       require('postcss-assets')({
-        loadPaths: ['images/'],
+        loadPaths: ['images/build'],
         basePath: dir.build
       }),
       require('autoprefixer')({
@@ -78,11 +67,10 @@
   };
 
   // minify production CSS
-  if (!devBuild) {
-    cssConfig.postCSS.push(
-      require('cssnano')
-    );
-  }
+  cssConfig.postCSS.push(
+    require('cssnano')
+  );
+
 
   gulp.task('css', gulp.series('images', (done) => {
 
@@ -93,48 +81,12 @@
       .pipe(sourcemaps ? sourcemaps.write() : noop())
       .pipe(size({ showFiles:true }))
       .pipe(gulp.dest(cssConfig.build))
-      .pipe(browsersync ? browsersync.reload({ stream: true }) : noop())
     
     done();
   }));
 
-  /*** JavaScript task ***/
-  const jsbuild = {
-    src             : dir.src + 'js/**/*',
-    build           : dir.build + 'js/',
-    file            : 'main.min.js'
-  };
-
-  gulp.task('js', (done) => {
-
-    gulp.src(jsbuild.src)
-      .pipe(deporder())
-      .pipe(concat(jsbuild.file))
-      .pipe(devBuild ? noop() : stripdebug())
-      .pipe(devBuild ? noop() : uglify())
-      .pipe(gulp.dest(jsbuild.build))
-    done();
-  });
-
-/*** browser-sync task ***/
-const syncConfig = {
-  server: {
-    baseDir          : './',
-    index            : 'public/index.html'
-  },
-  port               : 8000,
-  files              : dir.build + '**/*',
-  open               : false
-};
-
-// browser-sync
-gulp.task('browsersync', (done) => {
-  browsersync ? browsersync.init(syncConfig) : noop();
-  done();
-});
-
 /*** watch-task ***/
-gulp.task('default', gulp.series('css', 'browsersync', (done) => {
+gulp.task('default', gulp.series('css', (done) => {
 
   // image changes
   gulp.watch(imgConfig.src, gulp.parallel(['images']));
