@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
+import PictureDecorated from './PictureDecorated';
+import React, { Component } from 'react';
+
 
 class Card extends Component {
   constructor(props) {
@@ -7,12 +9,6 @@ class Card extends Component {
 
     this.state = {
       style : {},
-      strings: {
-        customLink: props.customLink,
-        pic: props.pic,
-        cardTitle: props.cardTitle,
-        cardSubtitle: props.cardSubtitle
-      }
     }
 
     const defaultSettings = {
@@ -26,6 +22,8 @@ class Card extends Component {
       axis: null,
       reset: true
     };
+
+    this.person = props.person;
 
     this.width = null;
     this.height = null;
@@ -46,10 +44,12 @@ class Card extends Component {
   componentDidMount() {
     this.element = findDOMNode(this);
   }
+
   componentWillUnmount() {
     clearTimeout(this.transitionTimeout);
     cancelAnimationFrame(this.updateCall);
   }
+
   onMouseEnter(cb = () => {}, e) {
     this.updateElementPosition();
 
@@ -64,6 +64,7 @@ class Card extends Component {
 
     return cb(e)
   }
+
   reset() {
     window.requestAnimationFrame(() => {
       this.setState(Object.assign({}, this.state, {
@@ -73,6 +74,7 @@ class Card extends Component {
       }))
     });
   }
+
   onMouseMove(cb = () => {}, e) {
     e.persist();
 
@@ -85,6 +87,7 @@ class Card extends Component {
 
     return cb(e);
   }
+
   setTransition() {
     clearTimeout(this.transitionTimeout);
 
@@ -104,6 +107,7 @@ class Card extends Component {
       }))
     }, this.settings.speed);
   }
+
   onMouseLeave(cb = () => {}, e) {
     this.setTransition();
 
@@ -112,6 +116,7 @@ class Card extends Component {
     }
     return cb(e)
   }
+  
   getValues(e) {
     const x = (e.nativeEvent.clientX - this.left) / this.width;
     const y = (e.nativeEvent.clientY - this.top) / this.height;
@@ -159,41 +164,21 @@ class Card extends Component {
 
   render() {
     const style = Object.assign({}, this.props.style, this.state.style);
-    const string = Object.assign({}, this.state.strings);
+    const {link, name, subtitle, pic} = this.person;
     const VIEWBOX = "0 0 300 415";
     const SVGBORDER = "M20.5,20.5h260v375h-260V20.5z";
-    const desc = "an outline for " + string.cardTitle + "'s profile card";
+    const desc = "an outline for " + name + "'s profile card";
 
     return (
       <a 
         className="tilt" 
-        href={string.customLink}
+        href={link}
         style={style}
         onMouseEnter={this.onMouseEnter}
         onMouseMove={this.onMouseMove}
         onMouseLeave={this.onMouseLeave}
       >
-        <figure className="tilt--cover tilt-figure js-tilt">
-              <img 
-                className="tilt--cover tilt-image" 
-                src={string.pic} 
-                alt={"Portrait of " + string.cardTitle} 
-              />
-              <div className="tilt-deco tilt-deco--overlay"></div>
-              <figcaption className="tilt-caption">
-                <h2 className="tilt-title">{string.cardTitle}</h2>
-                <p className="tilt-description">{string.cardSubtitle}</p>
-              </figcaption>
-              <svg 
-                className="tilt-deco tilt-deco--lines" 
-                viewBox={VIEWBOX}
-                title="white outline" 
-                desc={desc}
-              >
-                <desc>{desc}</desc>
-                <path d={SVGBORDER} />
-              </svg>
-            </figure>
+        <PictureDecorated pic={pic} name={name} subtitle={subtitle} desc={desc} viewbox={VIEWBOX} svgBorder={SVGBORDER} />
       </a>
     );
   }
