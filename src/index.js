@@ -12,6 +12,7 @@ function addProgressiveEnhancement(){
 }
 
 // Rendering
-const root = document.getElementById('root');
 const {persons, ...colorPalette} = STRINGS;
+const root = document.getElementById('root');
+
 ReactDOM.render(<App persons={persons} copyrightInfo={colorPalette} />, root);
