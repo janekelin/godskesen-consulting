@@ -1,15 +1,14 @@
-import { findDOMNode } from 'react-dom';
-import PictureDecorated from './PictureDecorated';
-import React, { Component } from 'react';
-
+import { findDOMNode } from "react-dom";
+import PictureDecorated from "./PictureDecorated";
+import React, { Component } from "react";
 
 class Card extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      style : {},
-    }
+      style: {}
+    };
 
     const defaultSettings = {
       reverse: false,
@@ -46,11 +45,11 @@ class Card extends Component {
   onMouseEnter(cb = () => {}, e) {
     this.updateElementPosition();
 
-    this.setState(this.setNewValue('willChange', 'transform'));
+    this.setState(this.setNewValue("willChange", "transform"));
 
     this.setTransition();
 
-    return cb(e)
+    return cb(e);
   }
 
   onMouseLeave(cb = () => {}, e) {
@@ -58,7 +57,7 @@ class Card extends Component {
 
     this.settings.reset && this.reset();
 
-    return cb(e)
+    return cb(e);
   }
 
   onMouseMove(cb = () => {}, e) {
@@ -74,40 +73,45 @@ class Card extends Component {
 
   // Helper Functions
   getValues(e) {
-    const {min, max} = Math;
+    const { min, max } = Math;
 
     const x = (e.nativeEvent.clientX - this.left) / this.width;
     const y = (e.nativeEvent.clientY - this.top) / this.height;
     const _x = min(max(x, 0), 1);
     const _y = min(max(y, 0), 1);
 
-    const tiltX = (this.reverse * (this.settings.max / 2 - _x * this.settings.max)).toFixed(2);
-    const tiltY = (this.reverse * (_y * this.settings.max - this.settings.max / 2)).toFixed(2);
+    const tiltX = (
+      this.reverse *
+      (this.settings.max / 2 - _x * this.settings.max)
+    ).toFixed(2);
+    const tiltY = (
+      this.reverse *
+      (_y * this.settings.max - this.settings.max / 2)
+    ).toFixed(2);
 
-    const percentageX =  _x * 100
-    const percentageY = _y * 100
+    const percentageX = _x * 100;
+    const percentageY = _y * 100;
 
-    return ({
+    return {
       tiltX,
       tiltY,
       percentageX,
       percentageY
-    });
-
+    };
   }
 
   reset() {
     window.requestAnimationFrame(() => {
       const newTransform = `perspective(${this.settings.perspective}px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-      this.setState(this.setNewValue("transform", newTransform))
+      this.setState(this.setNewValue("transform", newTransform));
     });
   }
 
-  setNewValue(nestedKey, newValue, key="style"){
+  setNewValue(nestedKey, newValue, key = "style") {
     return Object.assign({}, this.state, {
-      [key] : {
+      [key]: {
         ...this.state[key],
-        [nestedKey] : newValue
+        [nestedKey]: newValue
       }
     });
   }
@@ -115,24 +119,27 @@ class Card extends Component {
   setTransition() {
     this.transitionTimeout && clearTimeout(this.transitionTimeout);
 
-    const {easing, speed} = this.settings;
+    const { easing, speed } = this.settings;
     const newTransition = `${speed}ms ${easing}`;
 
-    this.setState(this.setNewValue('transition', newTransition));
+    this.setState(this.setNewValue("transition", newTransition));
 
-    this.transitionTimeout = setTimeout(() => this.setState(this.setNewValue('transition', '')), speed);
+    this.transitionTimeout = setTimeout(
+      () => this.setState(this.setNewValue("transition", "")),
+      speed
+    );
   }
 
   update(e) {
-    const {axis, perspective, scale} = this.settings;
-    const {tiltX, tiltY} = this.getValues(e);
+    const { axis, perspective, scale } = this.settings;
+    const { tiltX, tiltY } = this.getValues(e);
     const newPerspective = `perspective(${perspective}px)`;
     const newRotateX = `rotateX(${axis === "x" ? 0 : tiltY}deg)`;
     const newRotateY = `rotateY(${axis === "y" ? 0 : tiltX}deg)`;
     const newScale3d = `scale3d(${scale}, ${scale}, ${scale})`;
     const newTransform = `${newPerspective} ${newRotateX} ${newRotateY} ${newScale3d}`;
 
-    this.setState(this.setNewValue('transform', newTransform));
+    this.setState(this.setNewValue("transform", newTransform));
 
     this.updateCall = null;
   }
@@ -147,22 +154,29 @@ class Card extends Component {
 
   // Rendering
   render() {
-    const {style} = this.state;
-    const {link, name, subtitle, pic} = this.person;
+    const { style } = this.state;
+    const { link, name, subtitle, pic } = this.person;
     const VIEWBOX = "0 0 300 415";
     const SVGBORDER = "M20.5,20.5h260v375h-260V20.5z";
     const desc = `an outline for ${name}'s profile card`;
 
     return (
-      <a 
-        className="tilt" 
+      <a
+        className="tilt"
         href={link}
         style={style}
         onMouseEnter={this.onMouseEnter}
         onMouseMove={this.onMouseMove}
         onMouseLeave={this.onMouseLeave}
       >
-        <PictureDecorated pic={pic} name={name} subtitle={subtitle} desc={desc} viewbox={VIEWBOX} svgBorder={SVGBORDER} />
+        <PictureDecorated
+          pic={pic}
+          name={name}
+          subtitle={subtitle}
+          desc={desc}
+          viewbox={VIEWBOX}
+          svgBorder={SVGBORDER}
+        />
       </a>
     );
   }
