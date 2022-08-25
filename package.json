@@ -19,25 +19,23 @@
     "url": "https://github.com/janekelin/godskesen-consulting/issues"
   },
   "homepage": "https://godskesen.consulting",
-  "devDependencies": {
-    "autoprefixer": "^9.6.1",
-    "cssnano": "^4.1.7",
-    "gulp": "^4.0.0",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-newer": "^1.4.0",
-    "gulp-noop": "^1.0.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-size": "^3.0.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "postcss-assets": "^5.0.0",
-    "stylelint": "^10.1.0",
-    "stylelint-a11y": "^1.2.1"
-  },
   "dependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "^3.1.1"
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scripts": "5.0.1",
+    "autoprefixer": "10.4.8",
+    "cssnano": "5.1.13",
+    "gulp": "4.0.2",
+    "gulp-imagemin": "8.0.0",
+    "gulp-newer": "1.4.0",
+    "gulp-noop": "1.0.1",
+    "gulp-postcss": "9.0.1",
+    "gulp-sass": "5.1.0",
+    "gulp-size": "4.0.1",
+    "gulp-sourcemaps": "3.0.0",
+    "postcss-assets": "6.0.0",
+    "stylelint": "13.13.1",
+    "stylelint-a11y": "1.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
